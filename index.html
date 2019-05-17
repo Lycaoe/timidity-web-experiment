@@ -1,0 +1,19 @@
+<script src="app.js"></script>
+<h3><a href="https://www.npmjs.com/package/timidity">Timidity</a> MIDI Player Experiment</h3>
+<input id="midi" type="file" accept="audio/midi"></input>
+<script>
+	var player = new Timidity();
+	document.querySelector('input').addEventListener('change', function() {
+	  var reader = new FileReader();
+	  reader.onload = function() {
+
+		var arrayBuffer = this.result;
+		var array = new Uint8Array(arrayBuffer);
+		player.load(array);
+		player.play();
+	  }
+	  reader.readAsArrayBuffer(this.files[0]);
+	}, false);
+</script>
+<p>Allow sound in site settings if using Chrome. Then select a MIDI file and it should play.</p>
+<p>You can play with the objects of `Timidity` and `player` in the console.</p>
