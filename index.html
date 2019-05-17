@@ -2,7 +2,7 @@
 <h3><a href="https://www.npmjs.com/package/timidity">Timidity</a> MIDI Player Experiment</h3>
 <input id="midi" type="file" accept="audio/midi"></input>
 <script>
-	var player = new Timidity();
+	var player = new Timidity("timidity-web-experiment");
 	document.querySelector('input').addEventListener('change', function() {
 	  var reader = new FileReader();
 	  reader.onload = function() {
